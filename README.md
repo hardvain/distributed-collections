@@ -1,8 +1,8 @@
 # Distributed Collections for Scala
 
-Distributed Collecitons for Scala is a library for large scala data processing that uses different cluster computing frameworks as the back-end. Library inherits *Scala 2.9.1* collections generic interface enriched with additional methods like `join`, `reduceByKey` etc.
-Currently the library uses only *Hadoop* as the back-end processing engine. However, we are aiming to extend the library to work with other frameworks like [*Spark*](www.spark-project.org ""), [*HaLoop*](http://code.google.com/p/haloop/ "") and [*Nephele*](http://www.stratosphere.eu/).
-This library is still in early phases of development, many features are not functioning and it is still **unusable**.
+Distributed Collections for Scala is a library for large scale data processing that uses different cluster computing frameworks as the back-end. Library inherits *Scala 2.9.1* collections generic interface enriched with additional methods like `join`, `reduceByKey` etc.
+Currently the library uses only *Hadoop* as the back-end processing engine. However, we are aiming to extend the library to work with other frameworks like [*Spark*](http://www.spark-project.org ""), [*HaLoop*](http://code.google.com/p/haloop/ "") and [*Nephele*](http://www.stratosphere.eu/).
+This library is still in early phases of development, many features are not functioning and it is still **UNUSABLE**. The project timline can be found [here](http://github.com/scala-incubator/distributed-collections/wiki/Milestones-and-Timeline).
 
 ## Build Instructions
 
@@ -37,6 +37,6 @@ Using the library is very similar to using Scala collections and parallel collec
 
   * Collections are instantiated from the URI that points to the data
   * Many operations use Int data type which can easily overflow in the domain so long versions should be used instead
-  * In the communication between the cluster nodes every piece of data is serialized and deserialized and the user must be careful not to accidentally serialize larger blocks of data
+  * In the communication between the cluster nodes every piece of data is serialized and deserialized and the user must be careful not to accidentally transfer large parts of object graph
 
- For more detailed description see the [wiki page](http://github.com/scala-incubator/distributed-collections/wiki "")
+ For more detailed description see the [wiki page](http://github.com/scala-incubator/distributed-collections/wiki/Distributed-Collections-for-Scala "")
