@@ -1,12 +1,15 @@
 # Distributed Collections for Scala
 
 Distributed Collecitons for Scala is a library for large scala data processing that uses different cluster computing frameworks as the back-end. Library inherits *Scala 2.9.1* collections generic interface enriched with additional methods like `join`, `reduceByKey` etc.
-Currently the library uses only *Hadoop* as the back-end anw we are aiming to extend the library to work with other frameworks like [*Spark*](www.spark-project.org ""), [*HaLoop*](http://code.google.com/p/haloop/ "") etc. This library is still in early phases of development, many features are not functioning and it is still unusable.
+Currently the library uses only *Hadoop* as the back-end processing engine. However, we are aiming to extend the library to work with other frameworks like [*Spark*](www.spark-project.org ""), [*HaLoop*](http://code.google.com/p/haloop/ "") and [*Nephele*](http://www.stratosphere.eu/).
+This library is still in early phases of development, many features are not functioning and it is still **unusable**.
 
 ## Build Instructions
 
-Project is built by Simple Build Tool and can be packaged by invoking `sbt package` from project root. After packaging you need to copy the library and all dependencies to the $HADOOP-HOME/lib:
+Project is built by Simple Build Tool and can be packaged by invoking `sbt update package` from project root. Building is also available through Maven by invoking `mvn package`.
+After packaging you need to copy the library and all dependencies to the $HADOOP-HOME/lib:
 
+ * distributed-collections
  * backend-api
  * hadoop-backend
  * objenesis-1.2.jar
@@ -20,7 +23,7 @@ Project is built by Simple Build Tool and can be packaged by invoking `sbt packa
 Project consists of 4 modules:
 
  * distriubted-collections - Distributed Collections Library
- * hadoop-backend - backend for Hadoop MapReduce implementation
+ * hadoop-backend - back-end that executes collections operations on Hadoop MapReduce
  * beckend-api - api shared between the library and back-end components
  * benchmarks - Distributed Collections benchmarks
 
