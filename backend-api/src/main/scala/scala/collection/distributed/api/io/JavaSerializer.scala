@@ -27,7 +27,7 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
- * Taken from Spark project (www.spark-project.org) for quick benchmarking. Thanks Matei.
+ * This is the outdated snapshot of the source taken from the Spark project (www.spark-project.org). It is used only for benchmarking purposes.
  */
 package scala.collection.distributed.api.io
 
