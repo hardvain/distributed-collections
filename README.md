@@ -1,8 +1,27 @@
 # Distributed Collections for Scala
 
+**NOTE:** Development of Distributed Collections for Scala is discontinued. The repository will remain online for existing references.
+The reasons for discontinuations are:
+
+ * *Incompatibility with Scala Collections* - Distributed collections require different interface for collections.
+Methods like `groupBy` return an `immutable.Map` which is not compatible with distributed collections. Furthermore,
+in some cases data manifests, or similar constructs are needed for efficient serialization but those would require
+significant changes in the common signature.
+
+ * *Rich signature of Scala Collections* - The Scala collections hierarchy contains methods whose signature is 
+intended for in-memory operation. By default Scala Collections eagerly execute the code which is for distributed
+collections overly expensive. Furthermore, abstractions like `Map` and `Set` require a barrier after every
+operation making them very slow even for basic operations like `map`. Finally, the Scala Collections expose
+methods like `zip` and `zipWithIndex` which are used frequently but are expensive in the distributed case. Exposing
+these methods would lure users into using them but their performance on large data would be unacceptably low.
+
+ * *Use cases* - Abstractions like `Map` and `Set` are widely used in shared memory environment for fast lookups.
+In case of distributed data this functionality is rarely needed and requires traversal of the whole data set.
+However, maintenance of these abstractions in the distributed case is very high.
+
+
 Distributed Collections for Scala is a library for large scale data processing that uses different cluster computing frameworks as the back-end. Library inherits *Scala 2.9.1* collections generic interface enriched with additional methods like `join`, `reduceByKey` etc.
 Currently the library uses only *Hadoop* as the back-end processing engine. However, we are aiming to extend the library to work with other frameworks like [*Spark*](http://www.spark-project.org ""), [*HaLoop*](http://code.google.com/p/haloop/ "") and [*Nephele*](http://www.stratosphere.eu/).
-This library is still in early phases of development, many features are not functioning and it is still **UNUSABLE**. The project timline can be found [here](http://github.com/scala-incubator/distributed-collections/wiki/Milestones-and-Timeline).
 
 ## Build Instructions
 
